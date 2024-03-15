@@ -2,9 +2,11 @@ import { useState } from "react";
 import React from "react";
 import { CiSearch } from "react-icons/ci";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import { IoMdAddCircle } from "react-icons/io";
+import { RiMessengerLine } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({header}) => {
+  const navigate=useNavigate();
   const [searchvalue, setSearchvalue] = useState("");
   const searchHandler = (e) => {
     e.preventDefault();
@@ -40,11 +42,11 @@ const Navbar = ({header}) => {
             <div className=" relative text-3xl">
               <IoMdNotificationsOutline />
             </div>
-            <div className="flex border-white border-2 px-4 py-2 gap-1 justify-center items-center cursor-pointer -sm:hidden">
+            <div onClick={()=>navigate("/dashboard/messenger")} className="flex border-white border-2 px-4 py-2 gap-1 justify-center items-center cursor-pointer -sm:hidden">
               <div>
-                <IoMdAddCircle />
+                <RiMessengerLine className="text-2xl"/>
               </div>
-              <div>Create new</div>
+              <div>Messenger</div>
             </div>
           </div>
         </div>

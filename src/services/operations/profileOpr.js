@@ -63,3 +63,22 @@ export async function savedPost(token){
   toast.dismiss(toastId);
   return result;
 }
+
+export async function getUserById(id,token){
+  const toastId=toast.loading("Loading...");
+  let result=[];
+  try{
+    const response=await apiConnector("GET",`${profileApi.GET_USER_BY_ID}/${id}`,null,{
+      Authorization: `Bearer ${token}`
+    });
+    console.log("GET USER API RESPONSE",response);
+    result=response.data.user
+    toast.success("user fetched successfully")
+  }
+  catch(error){
+    console.log(error);
+    toast.error(error.response.message);
+  }
+  toast.dismiss(toastId);
+  return result;
+}

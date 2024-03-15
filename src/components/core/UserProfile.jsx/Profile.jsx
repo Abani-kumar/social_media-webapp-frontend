@@ -8,22 +8,21 @@ import ProfileCard from "../../common/ProfileCard";
 import Post from "../../common/PostCard";
 
 const Profile = () => {
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const { token } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.auth);
   const { _id } = user;
 
-  const [loading, setLoading] = useState(true);
   const [result, setResult] = useState([]);
   const [posts, setPosts] = useState([]);
   const [isFollowing, setIsFollowing] = useState(false);
 
-  let response = [];
 
-  const helper = async () => {
-    response = await getUserAndPostById(id, token);
+  const helper = async() => {
+    const response = await getUserAndPostById(id, token);
     setResult(response);
-    setPosts(result.result?.post);
+    setPosts(response.result?.post);
     if (result.result?.follower.includes(_id)) {
       setIsFollowing(true);
     }

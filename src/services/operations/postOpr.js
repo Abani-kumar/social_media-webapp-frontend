@@ -40,7 +40,7 @@ export async function postFeed(token) {
     toast.success("post fetched successfully");
   } catch (error) {
     console.log("POSTLISTEN API ERROR.....", error.response);
-    toast.error(error.response.data.Message);
+    toast.error("error in fetching feed");
   }
   toast.dismiss(toastId);
   return result;

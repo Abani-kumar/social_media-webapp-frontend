@@ -17,6 +17,7 @@ import { useSelector } from "react-redux";
 import { FaHeart } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
 import CreateComment from "./CreateComment";
+import { RiMessengerLine } from "react-icons/ri";
 
 const Post = (post) => {
 
@@ -70,9 +71,9 @@ const Post = (post) => {
     setShowComment(!showComment);
   };
 
-  const handleProfile = (e) => {
-    e.stopPropagation();
-  };
+  // const handleProfile = (e) => {
+  //   e.stopPropagation();
+  // };
 
   const PostHandler=()=>{
     if(id===post.post._id){
@@ -120,8 +121,8 @@ const Post = (post) => {
                       <div>ago</div>
                     </div>
                   </div>
-                  <div>
-                    <BsThreeDotsVertical />
+                  <div className="cursor-pointer" onClick={()=>navigate(`/dashboard/messenger/${post.post.user?._id}`)}>
+                    <RiMessengerLine className="text-2xl"/>
                   </div>
                 </div>
               </div>

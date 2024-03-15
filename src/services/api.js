@@ -18,7 +18,8 @@ export const passport={
 
 export const profileApi={
   UPDATE_PROFILE:BASE_URL+"/profile/updateProfile",
-  CHANGE_PASSWORD:BASE_URL+"/profile/changePassword"
+  CHANGE_PASSWORD:BASE_URL+"/profile/changePassword",
+  GET_USER_BY_ID:BASE_URL+"/profile/getUser",
 }
 
 export const postApi={
@@ -38,4 +39,10 @@ export const postApi={
 export const commentApi={
   CREATE_COMMENT:BASE_URL+"/comment/createComment",
   CREATE_SUBCOMMENT:BASE_URL+"/comment/createSubComment"
+}
+
+export const messageApi={
+  CREATE_MESSAGE:BASE_URL+"/chat/createMessage",
+  GET_CONVERSATION:BASE_URL+"/chat/getConversation",
+  GET_MESSAGE:BASE_URL+"/chat/getMessage"
 }

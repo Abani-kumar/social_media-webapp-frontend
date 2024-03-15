@@ -7,6 +7,7 @@ import CreateSection from "../common/CreateSection";
 import { Outlet } from "react-router-dom";
 
 const PostListen = () => {
+
   const {user } = useSelector((state) => state.auth);
   const { loading } = useSelector((state) => state.post);
   const avatar = user?.avatar;
@@ -15,7 +16,8 @@ const PostListen = () => {
     : user?.firstName;
   const tagLine = user?.tagLine;
   const email = user?.email;
-  
+
+
   return (
     <div className="h-full">
     

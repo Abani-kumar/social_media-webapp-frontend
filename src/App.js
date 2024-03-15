@@ -18,10 +18,14 @@ import Card from "./pages/Post";
 import Comment from "./components/common/Comment";
 import UserProfile from "./components/Dashboard/UserProfile";
 import Profile from "./components/core/UserProfile.jsx/Profile";
+import Messenger from "./components/Dashboard/Messenger";
+import Message from "./components/core/Messenger/Message";
+import NullMessage from "./components/core/Messenger/NullMessage";
+import { useEffect } from "react";
 
 
 function App() {
-
+  
   return (
     <div className="w-screen min-h-screen bg-richblack-1000 flex flex-col font-inter ">
       <Routes>
@@ -29,6 +33,10 @@ function App() {
             <Route path="/register" element={<Register/>} />
             <Route path="/socialLogin" element={<SocialLogin />} />
             <Route path="dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}>
+              <Route path="messenger" element={<Messenger/>}>
+                <Route index element={<NullMessage/>}/>
+                <Route path=":id" element={<Message/>}/>
+              </Route>
               <Route path="feed" element={<PostListen/>}>
                 <Route index element={<Feed/>}/>
                 <Route path="post/:id" element={<Card/>}/>
