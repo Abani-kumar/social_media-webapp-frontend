@@ -125,12 +125,12 @@ export function login(data,navigate) {
   };
 }
 
-export function logout(dispatch){
-  dispatch(setToken(null));
-  dispatch(setUser(null));
-  localStorage.removeItem("token");
-  localStorage.removeItem("user");
-  toast.success("logout successfully")
-  navigate("/");
-}
+// export function logout(dispatch){
+//   dispatch(setToken(null));
+//   dispatch(setUser(null));
+//   localStorage.removeItem("token");
+//   localStorage.removeItem("user");
+//   toast.success("logout successfully")
+//   navigate("/");
+// }
 
